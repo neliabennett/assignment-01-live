@@ -3,13 +3,13 @@ google.load("visualization", "1", {packages:["corechart"]});
 
 app.controller('MainController', ['$scope', '$http',  function($scope, $http) {
   $http.get('/data').success(function(data){
-    
+   
   var dataArray = formatDataForView(data);
 
   var table = google.visualization.arrayToDataTable(dataArray, false);
-  var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+  var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
   
-  var options = {'title':'Company Sales'}
+  var options = {'title':'Food Truck Locations'}
   chart.draw(table, options);
 
   });
