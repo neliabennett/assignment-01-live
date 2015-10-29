@@ -7,9 +7,12 @@ app.controller('MainController', ['$scope', '$http',  function($scope, $http) {
   var dataArray = formatDataForView(data);
 
   var table = google.visualization.arrayToDataTable(dataArray, false);
-  var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+  var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+
   
-  var options = {'title':'Food Truck Locations'};
+  var options = {'title':'Food Truck Locations in San Francisco',
+                'width':800,
+                     'height':500};
   chart.draw(table, options);
 
   });
